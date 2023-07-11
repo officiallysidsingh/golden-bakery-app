@@ -4,13 +4,11 @@ export default function Banner() {
   return (
     <div
       style={{ backgroundImage: `url(${bannerImg})` }}
-      className="flex items-center justify-center
-      bg-cover bg-center bg-no-repeat h-96
-      mx-auto max-w-[90%] rounded-2xl
-      mt-4 shadow-xl
-      absolute inset-0 bg-black opacity-50"
-    >
-      <h1 className="font-bold text-[#E48436] text-6xl">Golden Bakery</h1>
-    </div>
+      className="bg-cover bg-center bg-no-repeat
+                   mx-auto rounded-3xl
+      flex items-center justify-center md:h-[40rem] h-96
+                   max-w-[90%]
+                   mt-4 shadow-2xl"
+    ></div>
   );
 }
