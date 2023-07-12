@@ -2,7 +2,9 @@ export default function Header() {
   return (
     <header className="h-24 mx-auto flex items-center justify-between">
       <div className="font-[Pacifico] pl-20">
-        <h1 className="text-[#411900] text-4xl">Golden&nbsp;Bakery</h1>
+        <h1 className="text-[#411900] text-4xl">
+          Golden&nbsp;<span className="text-[#c32828]">Bakery</span>
+        </h1>
       </div>
       <div>
         <div className="flex items-center justify-between mr-20 bg-[#c32828] rounded-xl h-12 w-28 gap-2 px-2 py-1 text-white">
@@ -40,7 +42,7 @@ export default function Header() {
           </div>
         </div>
         <div className="flex items-center justify-center bg-black text-white absolute h-5 w-5 rounded-full -mt-5 ml-[5.5rem]">
-          <p>4</p>
+          <p className="cursor-pointer">4</p>
         </div>
       </div>
     </header>

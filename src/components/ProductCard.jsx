@@ -1,8 +1,7 @@
 // React Icons
 import { useState } from "react";
-import cakeImg from "../assets/cake.jpg";
 
-export default function ProductCard() {
+export default function ProductCard({ data }) {
   const [added, setAdded] = useState(false);
 
   function addToCart() {
@@ -10,8 +9,8 @@ export default function ProductCard() {
   }
 
   return (
-    <div className="max-w-sm rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl mb-2">
-      <img className="w-full" src={cakeImg} alt="Cake" />
+    <div className="max-w-sm rounded-2xl overflow-hidden shadow-lg hover:shadow-xl hover:shadow-[#c32828] mb-2">
+      <img className="w-full h-72" src={data.img} alt={data.name} />
       {added ? (
         <div
           className="border-2 border-[#c32828] bg-gray-100 rounded-full h-11 w-11 text-black absolute -mt-6 ml-[20.2rem] cursor-pointer"
@@ -54,11 +53,10 @@ export default function ProductCard() {
         </div>
       )}
       <div className="px-6 py-4">
-        <div className="font-bold text-xl mb-2">Black Forest Cake</div>
+        <div className="font-bold text-2xl mb-1">&#8377;{data.price}</div>
+        <div className="font-bold text-xl mb-2">{data.name}</div>
         <p className="text-gray-700 text-base">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus
-          quia, nulla! Maiores et perferendis eaque, exercitationem praesentium
-          nihil.
+          {data.description.substring(0, 101)}...
         </p>
       </div>
     </div>
