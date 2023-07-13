@@ -1,10 +1,27 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 
 // Custom Components
 import Cart from "./Cart.jsx";
 
 export default function Header() {
   const [showCart, setShowCart] = useState(false);
+  const [totalItems, setTotalItems] = useState(0);
+
+  const cartItems = useSelector((state) => state.cart);
+
+  useEffect(() => {
+    function calculateTotalItems () {
+      let items = 0;
+  
+      cartItems.forEach(item => {
+        items += 1;
+      });
+      setTotalItems(items);
+    }
+
+    calculateTotalItems();
+  }, [cartItems]);
 
   return (
     <>
@@ -49,9 +66,11 @@ export default function Header() {
               </svg>
             </div>
           </div>
-          <div className="flex items-center justify-center bg-black text-white absolute h-5 w-5 rounded-full -mt-5 ml-[5.5rem]" onClick={() => setShowCart(true)}>
-            <p className="cursor-pointer">4</p>
-          </div>
+          {(totalItems > 0) ? (
+            <div className="flex items-center justify-center bg-black text-white absolute h-5 w-5 rounded-full -mt-5 ml-[5.5rem]" onClick={() => setShowCart(true)}>
+              <p className="cursor-pointer">{totalItems}</p>
+            </div>
+          ) : null}
         </div>
       </header>
       <Cart showCart={showCart} setShowCart={setShowCart} />
