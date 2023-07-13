@@ -1,20 +1,34 @@
-// React Icons
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addToCart, removeItem } from "../redux/cartSlice";
 
 export default function ProductCard({ data }) {
   const [added, setAdded] = useState(false);
+  const dispatch = useDispatch();
 
-  function addToCart() {
-    setAdded((prev) => !prev);
+  const { id, img, name, price, description } = data;
+
+  function addItem () {
+    dispatch(addToCart({
+      id, img, name, price
+    }));
+
+    setAdded(prev => !prev);
+  }
+
+  function removeFromCart () {
+    dispatch(removeItem(id));
+
+    setAdded(prev => !prev);
   }
 
   return (
     <div className="max-w-sm rounded-2xl overflow-hidden shadow-lg hover:shadow-xl hover:shadow-[#c32828] mb-2">
-      <img className="w-full h-72" src={data.img} alt={data.name} />
+      <img className="w-full h-72" src={img} alt={name} />
       {added ? (
         <div
           className="border-2 border-[#c32828] bg-gray-100 rounded-full h-11 w-11 text-black absolute -mt-6 ml-[20.2rem] cursor-pointer"
-          onClick={addToCart}
+          onClick={removeFromCart}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -34,7 +48,7 @@ export default function ProductCard({ data }) {
       ) : (
         <div
           className="bg-[#c32828] rounded-full h-10 w-10 text-white absolute -mt-6 ml-[20.2rem] cursor-pointer"
-          onClick={addToCart}
+          onClick={addItem}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -53,10 +67,10 @@ export default function ProductCard({ data }) {
         </div>
       )}
       <div className="px-6 py-4">
-        <div className="font-bold text-2xl mb-1 text-[#411900]">&#8377;{data.price}</div>
-        <div className="font-bold text-xl mb-2 text-[#c32828]">{data.name}</div>
+        <div className="font-bold text-2xl mb-1 text-[#411900]">&#8377;{price}</div>
+        <div className="font-bold text-xl mb-2 text-[#c32828]">{name}</div>
         <p className="text-gray-700 text-base">
-          {data.description.substring(0, 101)}...
+          {description.substring(0, 101)}...
         </p>
       </div>
     </div>
