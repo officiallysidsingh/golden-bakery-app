@@ -24,6 +24,7 @@ export default function Cart ({ showCart, setShowCart }) {
 
     function checkoutCart () {
       console.log(cart);
+      console.log(`Total Price: ${cartSubtotal}`);
     }
 
     if (!showCart){
