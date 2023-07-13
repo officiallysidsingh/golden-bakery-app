@@ -53,8 +53,8 @@ export default function ProductCard({ data }) {
         </div>
       )}
       <div className="px-6 py-4">
-        <div className="font-bold text-2xl mb-1">&#8377;{data.price}</div>
-        <div className="font-bold text-xl mb-2">{data.name}</div>
+        <div className="font-bold text-2xl mb-1 text-[#411900]">&#8377;{data.price}</div>
+        <div className="font-bold text-xl mb-2 text-[#c32828]">{data.name}</div>
         <p className="text-gray-700 text-base">
           {data.description.substring(0, 101)}...
         </p>
