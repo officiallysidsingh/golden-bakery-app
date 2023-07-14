@@ -3,10 +3,12 @@ import { useSelector } from "react-redux";
 
 // Custom Components
 import Cart from "./Cart.jsx";
+import { useNavigate } from "react-router-dom";
 
 export default function Header() {
   const [showCart, setShowCart] = useState(false);
   const [totalItems, setTotalItems] = useState(0);
+  const navigate = useNavigate();
 
   const cartItems = useSelector((state) => state.cart);
 
@@ -26,7 +28,7 @@ export default function Header() {
   return (
     <>
       <header className="h-24 mx-auto flex items-center justify-between">
-        <div className="font-[Pacifico] pl-20">
+        <div className="font-[Pacifico] ml-20 cursor-pointer" onClick={() => { navigate("/") }}>
           <h1 className="text-[#411900] text-4xl">
             Golden&nbsp;<span className="text-[#c32828]">Bakery</span>
           </h1>
