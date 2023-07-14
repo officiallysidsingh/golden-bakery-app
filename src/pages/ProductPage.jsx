@@ -42,7 +42,7 @@ export default function ProductPage () {
                         <h1 className="px-2">Remove&nbsp;From&nbsp;Cart</h1>
                     </div>
                 ) : (
-                    <div className="w-44 flex h-12 mr-3 rounded-2xl mt-4 flex-grow-1 md:flex-grow-0 text-xl cursor-pointer justify-center items-center text-white bg-[#c32828]" onClick={() => { dispatch(addToCart( product )) }}>
+                    <div className="w-44 flex h-12 mr-3 rounded-2xl mt-4 flex-grow-1 md:flex-grow-0 text-xl cursor-pointer justify-center items-center text-white bg-[#c32828]" onClick={() => { dispatch(addToCart({ id: product.id, img: product.img, name: product.name, price: product.price })) }}>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                         </svg>
