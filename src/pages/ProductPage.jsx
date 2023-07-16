@@ -33,7 +33,7 @@ export default function ProductPage () {
             </div>
             <div className="w-full xl:pl-20">
                 <h1 className="mt-5 font-bold text-5xl">{product.name}</h1>
-                <p className="mt-5 text-base">{product.description}</p>
+                <p className="mt-5 font-medium text-lg text-justify pb-5">{product.description}</p>
                 {(toggleAddRemoveButton(product.id)) ? (
                     <div className="w-60 flex h-12 mr-3 rounded-2xl mt-4 flex-grow-1 md:flex-grow-0 text-xl cursor-pointer justify-center items-center border-2 border-[#c32828] bg-gray-100 text-black" onClick={() => { dispatch(removeItem(product.id)) }}>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-7 h-7">
