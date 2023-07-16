@@ -9,18 +9,27 @@ export default function ProductCard({ data }) {
 
   const { id, img, name, price, description } = data;
 
-  function toggleAddRemoveButton (id) {
-    return cart.find((item) => item.id === id)
+  function toggleAddRemoveButton(id) {
+    return cart.find((item) => item.id === id);
   }
 
   return (
     <div className="max-w-sm rounded-2xl overflow-hidden shadow-lg hover:shadow-xl hover:shadow-[#c32828] mb-2 cursor-pointer">
       <div className="flex flex-col justify-end items-end -mr-5">
-        <img className="w-full h-72" src={img} alt={name} onClick={() => { navigate(`/product/${id}`) }} />
-        {(toggleAddRemoveButton(id)) ? (
+        <img
+          className="w-full h-72"
+          src={img}
+          alt={name}
+          onClick={() => {
+            navigate(`/product/${id}`);
+          }}
+        />
+        {toggleAddRemoveButton(id) ? (
           <div
             className="border-2 border-[#c32828] bg-gray-100 rounded-full h-11 w-11 text-black absolute -mb-5 cursor-pointer"
-            onClick={() => { dispatch(removeItem(id)) }}
+            onClick={() => {
+              dispatch(removeItem(id));
+            }}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -40,7 +49,9 @@ export default function ProductCard({ data }) {
         ) : (
           <div
             className="bg-[#c32828] rounded-full h-10 w-10 text-white absolute -mb-5 cursor-pointer"
-            onClick={() => { dispatch(addToCart({ id, img, name, price })) }}
+            onClick={() => {
+              dispatch(addToCart({ id, img, name, price }));
+            }}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -59,8 +70,15 @@ export default function ProductCard({ data }) {
           </div>
         )}
       </div>
-      <div className="px-6 py-4" onClick={() => { navigate(`/product/${id}`) }}>
-        <div className="font-bold text-2xl mb-1 text-[#411900]">&#8377;{price}</div>
+      <div
+        className="px-6 py-4"
+        onClick={() => {
+          navigate(`/product/${id}`);
+        }}
+      >
+        <div className="font-bold text-2xl mb-1 text-[#411900]">
+          &#8377;{price}
+        </div>
         <div className="font-bold text-xl mb-2 text-[#c32828]">{name}</div>
         <p className="text-gray-700 text-base">
           {description.substring(0, 101)}...

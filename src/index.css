@@ -3,7 +3,6 @@
 @tailwind utilities;
 
 body {
-  /* background-color: #fbc4ab; */
   min-width: 600px;
   -ms-overflow-style: none;
   scrollbar-width: none;

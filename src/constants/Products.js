@@ -60,7 +60,7 @@ export const AllProducts = [
     price: "659",
     name: "Fruit Tart",
     description:
-    "Delight in the vibrant beauty and refreshing flavors of a Fruit Tart. This exquisite pastry showcases a delicate, buttery crust, filled with a luscious pastry cream and adorned with a colorful assortment of fresh fruits. Each bite offers a delightful contrast of textures and tastes, from the crispness of the crust to the creaminess of the filling, complemented by the natural sweetness and juiciness of the fruits. Whether it's adorned with berries, kiwi, or a medley of tropical fruits, the Fruit Tart is a visual and culinary masterpiece that brings joy and a taste of elegance to any occasion.",
+      "Delight in the vibrant beauty and refreshing flavors of a Fruit Tart. This exquisite pastry showcases a delicate, buttery crust, filled with a luscious pastry cream and adorned with a colorful assortment of fresh fruits. Each bite offers a delightful contrast of textures and tastes, from the crispness of the crust to the creaminess of the filling, complemented by the natural sweetness and juiciness of the fruits. Whether it's adorned with berries, kiwi, or a medley of tropical fruits, the Fruit Tart is a visual and culinary masterpiece that brings joy and a taste of elegance to any occasion.",
   },
   {
     id: 6,
@@ -68,7 +68,7 @@ export const AllProducts = [
     price: "419",
     name: "Scone",
     description:
-    "Transport yourself to a cozy English tea room with a freshly-baked Scone. This delightful pastry offers a crumbly and tender texture, with a subtle hint of buttery goodness. Whether enjoyed plain, with clotted cream and jam, or with a variety of add-ins like dried fruit or chocolate chips, the Scone is a classic treat that pairs perfectly with a cup of tea or coffee. Each bite is a comforting embrace that brings warmth and a touch of elegance to any morning or afternoon ritual.",
+      "Transport yourself to a cozy English tea room with a freshly-baked Scone. This delightful pastry offers a crumbly and tender texture, with a subtle hint of buttery goodness. Whether enjoyed plain, with clotted cream and jam, or with a variety of add-ins like dried fruit or chocolate chips, the Scone is a classic treat that pairs perfectly with a cup of tea or coffee. Each bite is a comforting embrace that brings warmth and a touch of elegance to any morning or afternoon ritual.",
   },
   {
     id: 7,
@@ -76,7 +76,7 @@ export const AllProducts = [
     price: "149",
     name: "Bagel",
     description:
-    "Delight in the satisfying chewiness of a Bagel, a beloved staple loved by many. This circular bread roll boasts a slightly crispy exterior and a soft, dense interior, making it the perfect canvas for endless flavor combinations. Whether you prefer a classic plain bagel, an everything bagel bursting with seeds and spices, or a savory bagel with cream cheese and lox, each bite is a journey of delightful textures and tastes. Enjoy it toasted or untoasted, plain or dressed up with your favorite toppings. The versatility of the Bagel makes it a beloved choice for breakfast, brunch, or a satisfying snack at any time of the day.",
+      "Delight in the satisfying chewiness of a Bagel, a beloved staple loved by many. This circular bread roll boasts a slightly crispy exterior and a soft, dense interior, making it the perfect canvas for endless flavor combinations. Whether you prefer a classic plain bagel, an everything bagel bursting with seeds and spices, or a savory bagel with cream cheese and lox, each bite is a journey of delightful textures and tastes. Enjoy it toasted or untoasted, plain or dressed up with your favorite toppings. The versatility of the Bagel makes it a beloved choice for breakfast, brunch, or a satisfying snack at any time of the day.",
   },
   {
     id: 8,
@@ -84,7 +84,7 @@ export const AllProducts = [
     price: "139",
     name: "Cinnamon Roll",
     description:
-    "Indulge in the comforting embrace of a freshly-baked Cinnamon Roll. This beloved pastry features soft, pillowy dough generously swirled with a fragrant blend of cinnamon and brown sugar. As it bakes, the heavenly aroma fills the air, making each bite even more irresistible. Topped with a luscious cream cheese glaze that melts into the warm pastry, the Cinnamon Roll is a delightful balance of sweetness and spice. Whether enjoyed as a special breakfast treat or a cozy dessert, this classic pastry is a true symbol of comfort and indulgence.",
+      "Indulge in the comforting embrace of a freshly-baked Cinnamon Roll. This beloved pastry features soft, pillowy dough generously swirled with a fragrant blend of cinnamon and brown sugar. As it bakes, the heavenly aroma fills the air, making each bite even more irresistible. Topped with a luscious cream cheese glaze that melts into the warm pastry, the Cinnamon Roll is a delightful balance of sweetness and spice. Whether enjoyed as a special breakfast treat or a cozy dessert, this classic pastry is a true symbol of comfort and indulgence.",
   },
   {
     id: 9,
@@ -92,7 +92,7 @@ export const AllProducts = [
     price: "169",
     name: "Cheesecake",
     description:
-    "Delight in the velvety smoothness of a classic Cheesecake. This beloved dessert is a true testament to indulgence and elegance. With its rich and creamy texture, each slice offers a heavenly mouthfeel that is complemented by the buttery graham cracker crust. Whether topped with a luscious fruit compote, a drizzle of caramel, or enjoyed plain, the Cheesecake is a timeless favorite that never fails to captivate. From its delicate balance of sweet and tangy flavors to its decadent allure, this dessert is a true masterpiece that will leave you wanting more.",
+      "Delight in the velvety smoothness of a classic Cheesecake. This beloved dessert is a true testament to indulgence and elegance. With its rich and creamy texture, each slice offers a heavenly mouthfeel that is complemented by the buttery graham cracker crust. Whether topped with a luscious fruit compote, a drizzle of caramel, or enjoyed plain, the Cheesecake is a timeless favorite that never fails to captivate. From its delicate balance of sweet and tangy flavors to its decadent allure, this dessert is a true masterpiece that will leave you wanting more.",
   },
   {
     id: 10,
@@ -100,7 +100,7 @@ export const AllProducts = [
     price: "279",
     name: "Palmier",
     description:
-    "Indulge in the delicate crispiness of a Palmier, also known as the Elephant Ear cookie. These delightful pastries are created by folding layers of buttery puff pastry, resulting in a caramelized and flaky texture that is both sweet and savory. With their distinctive shape resembling a palm leaf, each bite offers a satisfying crunch and a hint of caramelized sugar. Whether enjoyed as a simple treat with a cup of tea or used as an elegant garnish for ice cream or other desserts, Palmiers are a versatile and delightful indulgence that brings a touch of sophistication to any occasion.",
+      "Indulge in the delicate crispiness of a Palmier, also known as the Elephant Ear cookie. These delightful pastries are created by folding layers of buttery puff pastry, resulting in a caramelized and flaky texture that is both sweet and savory. With their distinctive shape resembling a palm leaf, each bite offers a satisfying crunch and a hint of caramelized sugar. Whether enjoyed as a simple treat with a cup of tea or used as an elegant garnish for ice cream or other desserts, Palmiers are a versatile and delightful indulgence that brings a touch of sophistication to any occasion.",
   },
   {
     id: 0,

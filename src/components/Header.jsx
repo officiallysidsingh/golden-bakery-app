@@ -13,10 +13,10 @@ export default function Header() {
   const cartItems = useSelector((state) => state.cart);
 
   useEffect(() => {
-    function calculateTotalItems () {
+    function calculateTotalItems() {
       let items = 0;
-  
-      cartItems.forEach(item => {
+
+      cartItems.forEach((item) => {
         items += 1;
       });
       setTotalItems(items);
@@ -28,7 +28,12 @@ export default function Header() {
   return (
     <>
       <header className="h-24 mx-auto flex items-center justify-between">
-        <div className="font-[Pacifico] ml-20 cursor-pointer" onClick={() => { navigate("/") }}>
+        <div
+          className="font-[Pacifico] ml-20 cursor-pointer"
+          onClick={() => {
+            navigate("/");
+          }}
+        >
           <h1 className="text-[#411900] text-4xl">
             Golden&nbsp;<span className="text-[#c32828]">Bakery</span>
           </h1>
@@ -36,8 +41,19 @@ export default function Header() {
         <div className="mr-20">
           <div className="flex items-center justify-between bg-[#c32828] rounded-xl h-12 w-28 gap-2 px-2 py-1 text-white">
             <div className="cursor-pointer">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="w-8 h-8"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+                />
               </svg>
             </div>
             <div className="cursor-pointer" onClick={() => setShowCart(true)}>
@@ -57,8 +73,11 @@ export default function Header() {
               </svg>
             </div>
           </div>
-          {(totalItems > 0) ? (
-            <div className="flex items-center justify-center bg-black text-white absolute h-5 w-5 rounded-full -mt-5 ml-[5.5rem]" onClick={() => setShowCart(true)}>
+          {totalItems > 0 ? (
+            <div
+              className="flex items-center justify-center bg-black text-white absolute h-5 w-5 rounded-full -mt-5 ml-[5.5rem]"
+              onClick={() => setShowCart(true)}
+            >
               <p className="cursor-pointer">{totalItems}</p>
             </div>
           ) : null}
