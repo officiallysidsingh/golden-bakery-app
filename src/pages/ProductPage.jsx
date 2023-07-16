@@ -27,7 +27,7 @@ export default function ProductPage () {
     }
 
     return (
-        <div className="flex flex-col justify-start mx-40 mt-4 mb-2 xl:h-[30rem] xl:flex-row">
+        <div className="flex flex-col justify-start mx-40 mt-4 mb-60 xl:h-[30rem] xl:flex-row">
             <div className="w-full overflow-clip rounded-2xl">
                 <img src={product.img} alt={product.name} className="rounded-2xl"/>
             </div>
