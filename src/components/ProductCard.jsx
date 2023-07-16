@@ -14,7 +14,7 @@ export default function ProductCard({ data }) {
   }
 
   return (
-    <div className="max-w-sm rounded-2xl overflow-hidden shadow-lg hover:shadow-xl hover:shadow-[#c32828] mb-2">
+    <div className="max-w-sm rounded-2xl overflow-hidden shadow-lg hover:shadow-xl hover:shadow-[#c32828] mb-2 cursor-pointer">
       <div className="flex flex-col justify-end items-end -mr-5">
         <img className="w-full h-72" src={img} alt={name} onClick={() => { navigate(`/product/${id}`) }} />
         {(toggleAddRemoveButton(id)) ? (
