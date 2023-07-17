@@ -10,7 +10,7 @@
 
 - Ex - `cd bakery-homepage`
 
-3. Install all the npm packages using the `npm i` or the `npm install` command.
+3. Install all the npm packages using the `npm ci` or the `npm install` command.
 
 4. Run the project locally in development environment using the `npm run dev` command.
 
@@ -21,3 +21,5 @@
 1. Used Tailwind For The CSS And Styling Of The App.
 2. Used Redux Toolkit For State Management Of Cart.
 3. Implemented React Router For Routing And Used Dynamic Routing As Well For Single Product Page.
+
+# Site Deployed At - https://sid-bakery-homepage.vercel.app/
