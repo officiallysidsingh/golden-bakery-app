@@ -7,7 +7,7 @@ export default function ProductCard({ data }) {
   const cart = useSelector((state) => state.cart);
   const navigate = useNavigate();
 
-  const { id, img, name, price, description } = data;
+  const { id, photoUrl, name, price, description } = data;
 
   function toggleAddRemoveButton(id) {
     return cart.find((item) => item.id === id);
@@ -18,7 +18,7 @@ export default function ProductCard({ data }) {
       <div className="flex flex-col justify-end items-end -mr-5">
         <img
           className="w-full h-72"
-          src={img}
+          src={photoUrl}
           alt={name}
           onClick={() => {
             navigate(`/product/${id}`);
@@ -50,7 +50,7 @@ export default function ProductCard({ data }) {
           <div
             className="bg-[#c32828] rounded-full h-10 w-10 text-white absolute -mb-5 cursor-pointer"
             onClick={() => {
-              dispatch(addToCart({ id, img, name, price }));
+              dispatch(addToCart({ id, photoUrl, name, price }));
             }}
           >
             <svg

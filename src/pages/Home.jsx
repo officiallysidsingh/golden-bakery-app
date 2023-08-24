@@ -2,10 +2,21 @@
 import Banner from "../components/Banner.jsx";
 import ProductCard from "../components/ProductCard.jsx";
 
-// Constants
-import { NewProducts, AllProducts } from "../constants/Products.js";
+// For GraphQL Query
+import { useQuery, gql } from '@apollo/client';
+import { GET_PRODUCTS_BY_NUMBER } from "../graphql.js";
 
 export default function Home() {
+  const { loading, error, data } = useQuery(GET_PRODUCTS_BY_NUMBER);
+
+  if (loading) return <p>Loading...</p>;
+  
+  if (error) return <p>Error : {error.message}</p>;
+  
+  const NewProducts = data.getProductByNumber.slice(0, 5);
+
+  const AllProducts = data.getProductByNumber;
+
   return (
     <div>
       <Banner />

@@ -14,7 +14,7 @@ export default function CartItem() {
       {cart.map((item) => (
         <div key={item.id} className="py-5 px-4 flex gap-[10px]">
           <div className="w-16 h-16 shrink-0">
-            <img src={item.img} alt={item.name} className="w-full h-full" />
+            <img src={item.photoUrl} alt={item.name} className="w-full h-full" />
           </div>
           <div className="overflow-hidden relative w-full h-full">
             <span className="text-ellipsis whitespace-nowrap overflow-hidden text-base leading-4 mb-[10px] font-semibold block pr-6">
