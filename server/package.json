@@ -1,0 +1,25 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "A Backend GraphQL Server For Golden Bakery Ecommerce App",
+  "main": "index.js",
+  "repository": "https://www.github.com/officiallysidsingh/golden-bakery-app",
+  "author": "Siddharth Singh",
+  "license": "MIT",
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "dependencies": {
+    "@apollo/server": "^4.9.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "graphql": "^16.8.0",
+    "graphql-tag": "^2.12.6",
+    "mongoose": "^7.5.2"
+  },
+  "scripts": {
+    "dev": "nodemon index.js",
+    "build": "node index.js"
+  }
+}
