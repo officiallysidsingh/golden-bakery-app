@@ -1,25 +1,11 @@
 import { ApolloServer } from "@apollo/server";
-import { gql } from "graphql-tag";
-
-const resolvers = {
-  Query: {
-    hello: () => {
-      return "Hello World!";
-    },
-  },
-};
-
-const typeDefs = gql`
-  type Query {
-    hello: String
-  }
-`;
+import { Product } from "./product/index.js";
 
 async function createGraphQLServer() {
   // Create GraphQL Server
   const gqlServer = new ApolloServer({
-    typeDefs,
-    resolvers,
+    typeDefs: Product.typeDefs,
+    resolvers: Product.resolvers,
   });
 
   // Start GraphQL Server
