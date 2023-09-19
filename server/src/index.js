@@ -1,10 +1,10 @@
 import express from "express";
-import { expressMiddleware } from "@apollo/server/express4";
 
 // GraphQL Imports
+import { expressMiddleware } from "@apollo/server/express4";
 import createGraphQLServer from "./graphql/index.js";
 
-async function graphqlinit() {
+async function graphqlInit() {
   const app = express();
   const PORT = process.env.PORT || 8000;
 
@@ -24,4 +24,4 @@ async function graphqlinit() {
   });
 }
 
-graphqlinit();
+graphqlInit();
