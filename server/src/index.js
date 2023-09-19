@@ -1,17 +1,17 @@
 import express from "express";
-import dotenv from "dotenv";
 
 // MongoDB Imports
 import { connectMongoDB } from "./utils/dbConnection.js";
+
+// Environment Variable Imports
+import { PORT } from "./utils/env-variables.js";
 
 // GraphQL Imports
 import { expressMiddleware } from "@apollo/server/express4";
 import createGraphQLServer from "./graphql/index.js";
 
 async function graphqlInit() {
-  dotenv.config();
   const app = express();
-  const PORT = process.env.PORT || 8000;
 
   // MongoDB Connection
   await connectMongoDB();

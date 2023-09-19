@@ -1,8 +1,11 @@
 import mongoose from "mongoose";
 
+// Environment Variable Imports
+import { MONGODB_CONNECTION_URI } from "../utils/env-variables.js";
+
 export const connectMongoDB = async () => {
   try {
-    const connect = await mongoose.connect(process.env.MONGODB_CONNECTION_URI);
+    const connect = await mongoose.connect(MONGODB_CONNECTION_URI);
     console.log(
       "Database Connected: ",
       connect.connection.host,
