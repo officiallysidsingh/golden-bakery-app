@@ -1,10 +1,12 @@
 import express from "express";
+import dotenv from "dotenv";
 
 // GraphQL Imports
 import { expressMiddleware } from "@apollo/server/express4";
 import createGraphQLServer from "./graphql/index.js";
 
 async function graphqlInit() {
+  dotenv.config();
   const app = express();
   const PORT = process.env.PORT || 8000;
 
