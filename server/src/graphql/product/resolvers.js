@@ -1,6 +1,7 @@
 import {
   getProductById,
   getProductByNumber,
+  createProduct,
 } from "../../services/productService.js";
 import Product from "../../models/productModel.js";
 
@@ -20,14 +21,13 @@ export const resolvers = {
       _,
       { productInput: { name, description, price, photoUrl } }
     ) => {
-      const product = Product.create({
+      let createdProduct = await createProduct(
         name,
         description,
         price,
-        photoUrl,
-        createdAt: new Date().toISOString(),
-      });
-      return product;
+        photoUrl
+      );
+      return createdProduct;
     },
     deleteProduct: async (_, { ID }) => {
       const deletedProduct = await Product.findByIdAndDelete(ID);
