@@ -3,6 +3,7 @@ import {
   getProductByNumber,
   createProduct,
   deleteProduct,
+  editProduct,
 } from "../../services/productService.js";
 import Product from "../../models/productModel.js";
 
@@ -38,12 +39,7 @@ export const resolvers = {
       _,
       { ID, editProductInput: { name, description, price, photoUrl } }
     ) => {
-      await Product.findByIdAndUpdate(
-        ID,
-        { name, description, price, photoUrl },
-        { new: false }
-      );
-      const updatedProduct = Product.findById(ID);
+      let updatedProduct = editProduct(ID, name, description, price, photoUrl);
       return updatedProduct;
     },
   },
