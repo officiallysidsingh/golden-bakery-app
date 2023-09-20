@@ -1,14 +1,18 @@
-import { getProductById } from "../../services/productService.js";
+import {
+  getProductById,
+  getProductByNumber,
+} from "../../services/productService.js";
 import Product from "../../models/productModel.js";
 
 export const resolvers = {
   Query: {
     getProductById: async (_, { ID }) => {
-      const product = await getProductById(ID);
+      let product = await getProductById(ID);
       return product;
     },
     getProductByNumber: async (_, { number }) => {
-      return await Product.find().sort({ createdAt: 1 }).limit(number);
+      let product = await getProductByNumber(number);
+      return product;
     },
   },
   Mutation: {
