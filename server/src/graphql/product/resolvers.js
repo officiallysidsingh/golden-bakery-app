@@ -1,8 +1,9 @@
+import Product from "../../models/productModel.js";
+
 export const resolvers = {
-  // getProductsById: async() => {},
   Query: {
-    hello: () => {
-      return "Hello World!!!";
+    getProductById: async (_, { ID }) => {
+      return await Product.findById(ID);
     },
   },
 };
