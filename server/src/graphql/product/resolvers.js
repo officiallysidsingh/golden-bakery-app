@@ -9,4 +9,19 @@ export const resolvers = {
       return await Product.find().sort({ createdAt: 1 }).limit(number);
     },
   },
+  Mutation: {
+    createProduct: async (
+      _,
+      { productInput: { name, description, price, photoUrl } }
+    ) => {
+      const product = Product.create({
+        name,
+        description,
+        price,
+        photoUrl,
+        createdAt: new Date().toISOString(),
+      });
+      return product;
+    },
+  },
 };
