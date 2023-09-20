@@ -2,6 +2,7 @@ import {
   getProductById,
   getProductByNumber,
   createProduct,
+  deleteProduct,
 } from "../../services/productService.js";
 import Product from "../../models/productModel.js";
 
@@ -30,12 +31,8 @@ export const resolvers = {
       return createdProduct;
     },
     deleteProduct: async (_, { ID }) => {
-      const deletedProduct = await Product.findByIdAndDelete(ID);
-      if (deletedProduct) {
-        return `Deleted Entry With ID: ${ID}`;
-      } else {
-        return `Entry With Given ID Can't Be Found`;
-      }
+      let isProductDeleted = deleteProduct(ID);
+      return isProductDeleted;
     },
     editProduct: async (
       _,

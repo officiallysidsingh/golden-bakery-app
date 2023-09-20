@@ -20,3 +20,12 @@ export async function createProduct(name, description, price, photoUrl) {
   });
   return createdProduct;
 }
+
+export async function deleteProduct(ID) {
+  const deletedProduct = await Product.findByIdAndDelete(ID);
+  if (deletedProduct) {
+    return 1;
+  } else {
+    return 0;
+  }
+}
