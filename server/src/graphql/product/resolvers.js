@@ -23,5 +23,13 @@ export const resolvers = {
       });
       return product;
     },
+    deleteProduct: async (_, { ID }) => {
+      const deletedProduct = await Product.findByIdAndDelete(ID);
+      if (deletedProduct) {
+        return `Deleted Entry With ID: ${ID}`;
+      } else {
+        return `Entry With Given ID Can't Be Found`;
+      }
+    },
   },
 };
