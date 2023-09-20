@@ -31,5 +31,17 @@ export const resolvers = {
         return `Entry With Given ID Can't Be Found`;
       }
     },
+    editProduct: async (
+      _,
+      { ID, editProductInput: { name, description, price, photoUrl } }
+    ) => {
+      await Product.findByIdAndUpdate(
+        ID,
+        { name, description, price, photoUrl },
+        { new: false }
+      );
+      const updatedProduct = Product.findById(ID);
+      return updatedProduct;
+    },
   },
 };
