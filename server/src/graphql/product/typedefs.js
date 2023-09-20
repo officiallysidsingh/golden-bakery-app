@@ -24,13 +24,13 @@ export const typeDefs = gql`
   }
 
   type Query {
-    getProductById(ID: ID!): Product!
+    getProductById(ID: ID!): Product
     getProductByNumber(number: Int): [Product]
   }
 
   type Mutation {
     createProduct(productInput: ProductInput!): Product!
-    deleteProduct(ID: ID!): String!
+    deleteProduct(ID: ID!): Boolean!
     editProduct(ID: ID!, editProductInput: EditProductInput!): Product!
   }
 `;

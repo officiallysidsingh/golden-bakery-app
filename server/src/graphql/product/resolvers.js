@@ -5,7 +5,6 @@ import {
   deleteProduct,
   editProduct,
 } from "../../services/productService.js";
-import Product from "../../models/productModel.js";
 
 export const resolvers = {
   Query: {
