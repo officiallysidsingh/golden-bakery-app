@@ -31,14 +31,20 @@ export const resolvers = {
       return createdProduct;
     },
     deleteProduct: async (_, { ID }) => {
-      let isProductDeleted = deleteProduct(ID);
+      let isProductDeleted = await deleteProduct(ID);
       return isProductDeleted;
     },
     editProduct: async (
       _,
       { ID, editProductInput: { name, description, price, photoUrl } }
     ) => {
-      let updatedProduct = editProduct(ID, name, description, price, photoUrl);
+      let updatedProduct = await editProduct(
+        ID,
+        name,
+        description,
+        price,
+        photoUrl
+      );
       return updatedProduct;
     },
   },
