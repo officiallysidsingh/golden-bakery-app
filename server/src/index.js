@@ -1,4 +1,6 @@
+// Express App Imports
 import express from "express";
+import cors from "cors";
 
 // MongoDB Imports
 import { connectMongoDB } from "./utils/dbConnection.js";
@@ -16,7 +18,9 @@ async function graphqlInit() {
   // MongoDB Connection
   await connectMongoDB();
 
+  // Allowing JSON Requests And CORS On All Endpoints
   app.use(express.json());
+  app.use(cors());
 
   //Create GraphQL Server
   const gqlServer = await createGraphQLServer();
