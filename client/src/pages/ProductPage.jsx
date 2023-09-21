@@ -1,26 +1,27 @@
-import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-
-// Constants
-import { AllProducts } from "../constants/Products.js";
 
 // Redux
 import { useSelector, useDispatch } from "react-redux";
 import { addToCart, removeItem } from "../redux/cartSlice.js";
 
+// GraphQL
+import { useQuery } from "@apollo/client";
+import { GET_PRODUCT_BY_ID } from "../graphql.js";
+
 export default function ProductPage() {
-  const [product, setProduct] = useState({});
   const { id } = useParams();
   const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    setProduct(AllProducts.find((product) => product.id == id));
+  const { loading, error, data } = useQuery(GET_PRODUCT_BY_ID, {
+    variables: { id },
+  });
 
-    return () => {
-      setProduct([]);
-    };
-  }, []);
+  if (loading) return <p>Loading...</p>;
+
+  if (error) return <p>Error : {error.message}</p>;
+
+  const SingleProduct = data.getProductById;
 
   function toggleAddRemoveButton(id) {
     return cart.find((item) => item.id === id);
@@ -29,18 +30,22 @@ export default function ProductPage() {
   return (
     <div className="flex flex-col justify-start mx-40 mt-4 mb-60 xl:h-[30rem] xl:flex-row">
       <div className="w-full overflow-clip rounded-2xl">
-        <img src={product.img} alt={product.name} className="rounded-2xl" />
+        <img
+          src={SingleProduct.photoUrl}
+          alt={SingleProduct.name}
+          className="rounded-2xl"
+        />
       </div>
       <div className="w-full xl:pl-20">
-        <h1 className="mt-5 font-bold text-5xl">{product.name}</h1>
+        <h1 className="mt-5 font-bold text-5xl">{SingleProduct.name}</h1>
         <p className="mt-5 font-medium text-lg text-justify pb-5">
-          {product.description}
+          {SingleProduct.description}
         </p>
-        {toggleAddRemoveButton(product.id) ? (
+        {toggleAddRemoveButton(SingleProduct.id) ? (
           <div
             className="w-60 flex h-12 mr-3 rounded-2xl mt-4 flex-grow-1 md:flex-grow-0 text-xl cursor-pointer justify-center items-center border-2 border-[#c32828] bg-gray-100 text-black"
             onClick={() => {
-              dispatch(removeItem(product.id));
+              dispatch(removeItem(SingleProduct.id));
             }}
           >
             <svg
@@ -65,10 +70,10 @@ export default function ProductPage() {
             onClick={() => {
               dispatch(
                 addToCart({
-                  id: product.id,
-                  img: product.img,
-                  name: product.name,
-                  price: product.price,
+                  id: SingleProduct.id,
+                  photoUrl: SingleProduct.photoUrl,
+                  name: SingleProduct.name,
+                  price: SingleProduct.price,
                 })
               );
             }}
@@ -94,5 +99,3 @@ export default function ProductPage() {
     </div>
   );
 }
-
-// {item.quantity}
