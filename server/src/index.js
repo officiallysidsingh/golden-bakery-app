@@ -12,6 +12,7 @@ import { PORT } from "./utils/env-variables.js";
 import { expressMiddleware } from "@apollo/server/express4";
 import createGraphQLServer from "./graphql/index.js";
 
+// Stripe Service Import
 import { stripePayment } from "./services/paymentService.js";
 
 async function graphqlInit() {
@@ -24,15 +25,18 @@ async function graphqlInit() {
   app.use(express.json());
   app.use(cors());
 
-  //Create GraphQL Server
+  // Create GraphQL Server
   const gqlServer = await createGraphQLServer();
 
+  // Get Status Of Server
   app.get("/", (req, res) => {
     res.json({ message: "Server is up and running" });
   });
 
+  // GraphQL Endpoint
   app.use("/graphql", expressMiddleware(gqlServer));
 
+  // Stripe Endpoint
   app.post("/payments", stripePayment);
 
   app.listen(PORT, () => {
