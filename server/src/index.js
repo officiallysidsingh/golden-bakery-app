@@ -12,6 +12,8 @@ import { PORT } from "./utils/env-variables.js";
 import { expressMiddleware } from "@apollo/server/express4";
 import createGraphQLServer from "./graphql/index.js";
 
+import { stripePayment } from "./services/paymentService.js";
+
 async function graphqlInit() {
   const app = express();
 
@@ -30,6 +32,8 @@ async function graphqlInit() {
   });
 
   app.use("/graphql", expressMiddleware(gqlServer));
+
+  app.post("/payments", stripePayment);
 
   app.listen(PORT, () => {
     console.log(`Server ready at PORT: ${PORT}`);
