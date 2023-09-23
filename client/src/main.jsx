@@ -8,7 +8,7 @@ import { Provider } from "react-redux";
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 
 const client = new ApolloClient({
-  uri: import.meta.env.VITE_APP_SERVER_URI,
+  uri: `${import.meta.env.VITE_APP_SERVER_URI}/graphql`,
   cache: new InMemoryCache(),
 });
 
@@ -21,5 +21,5 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         </ApolloProvider>
       </Provider>
     </BrowserRouter>
-  </React.StrictMode>
+  </React.StrictMode>,
 );
