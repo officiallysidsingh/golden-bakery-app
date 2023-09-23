@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { BsCartX } from "react-icons/bs";
+import axios from "axios";
 
 // Custom Components
 import CartItem from "./CartItem.jsx";
@@ -9,6 +10,9 @@ export default function Cart({ showCart, setShowCart }) {
   const [cartSubtotal, setCartSubtotal] = useState(0);
 
   const cart = useSelector((state) => state.cart);
+
+  // Axios Default Base URL
+  axios.defaults.baseURL = import.meta.env.VITE_APP_SERVER_URI;
 
   useEffect(() => {
     function calculateSubtotal() {
@@ -23,9 +27,15 @@ export default function Cart({ showCart, setShowCart }) {
     calculateSubtotal();
   }, [cart]);
 
+  // Checkout Cart Function
   function checkoutCart() {
-    console.log(cart);
-    console.log(`Total Price: ${cartSubtotal}`);
+    axios
+      .post("/payments", {
+        products: cart,
+      })
+      .then((res) => {
+        window.location.replace(res.data.sessionUrl);
+      });
   }
 
   if (!showCart) {
