@@ -2,7 +2,7 @@
 import Stripe from "stripe";
 
 // Environment Variables Imports
-import { STRIPE_SECRET_KEY } from "../utils/env-variables.js";
+import { STRIPE_SECRET_KEY, CLIENT_URI } from "../utils/env-variables.js";
 
 // Function To Handle Stripe Payments
 export async function stripePayment(req, res) {
@@ -28,8 +28,8 @@ export async function stripePayment(req, res) {
   const session = await stripe.checkout.sessions.create({
     mode: "payment",
     payment_method_types: ["card"],
-    success_url: `https://www.google.com/`,
-    cancel_url: `https://www.reddit.com/`,
+    success_url: `${CLIENT_URI}/success`,
+    cancel_url: `${CLIENT_URI}`,
     line_items,
   });
 

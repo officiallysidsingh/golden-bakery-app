@@ -5,3 +5,4 @@ dotenv.config();
 export const PORT = process.env.PORT || 8000;
 export const MONGODB_CONNECTION_URI = process.env.MONGODB_CONNECTION_URI;
 export const STRIPE_SECRET_KEY = process.env.STRIPE_SECRET_KEY;
+export const CLIENT_URI = process.env.CLIENT_URI;
