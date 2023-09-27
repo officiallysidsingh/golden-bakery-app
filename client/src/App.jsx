@@ -1,21 +1,33 @@
+// React And React Router Imports
 import React from "react";
-import { Route, Routes } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 
-// Custom Pages
-import Layout from "./Layout";
-import Home from "./pages/Home.jsx";
-import SuccessPage from "./pages/SuccessPage.jsx";
-import ProductPage from "./pages/ProductPage";
+// Apollo Client Imports
+import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
+
+// Redux Imports
+import { store } from "./redux/store.js";
+import { Provider } from "react-redux";
+
+// AppRouter Page Import
+import AppRouter from "./AppRouter.jsx";
 
 function App() {
+  // Made An Instace Of Apollo Client
+  // To Pass To Apollo Provider
+  const client = new ApolloClient({
+    uri: `${import.meta.env.VITE_APP_SERVER_URI}/graphql`,
+    cache: new InMemoryCache(),
+  });
+
   return (
-    <Routes>
-      <Route path="/" element={<Layout />}>
-        <Route index element={<Home />} />
-        <Route path="/success" element={<SuccessPage />} />
-        <Route path="/product/:id" element={<ProductPage />} />
-      </Route>
-    </Routes>
+    <BrowserRouter>
+      <Provider store={store}>
+        <ApolloProvider client={client}>
+          <AppRouter />
+        </ApolloProvider>
+      </Provider>
+    </BrowserRouter>
   );
 }
 
