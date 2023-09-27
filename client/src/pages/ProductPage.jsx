@@ -8,6 +8,9 @@ import { addToCart, removeItem } from "../redux/cartSlice.js";
 import { useQuery } from "@apollo/client";
 import { GET_PRODUCT_BY_ID } from "../graphql.js";
 
+// Custom Pages
+import Loading from "./LoadingPage.jsx";
+
 export default function ProductPage() {
   const { id } = useParams();
   const cart = useSelector((state) => state.cart);
@@ -17,7 +20,7 @@ export default function ProductPage() {
     variables: { id },
   });
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <Loading />;
 
   if (error) return <p>Error : {error.message}</p>;
 
@@ -74,7 +77,7 @@ export default function ProductPage() {
                   photoUrl: SingleProduct.photoUrl,
                   name: SingleProduct.name,
                   price: SingleProduct.price,
-                })
+                }),
               );
             }}
           >
