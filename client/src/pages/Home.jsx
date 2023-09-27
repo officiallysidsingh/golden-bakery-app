@@ -2,6 +2,9 @@
 import Banner from "../components/Banner.jsx";
 import ProductCard from "../components/ProductCard.jsx";
 
+// Custom Pages
+import LoadingPage from "./LoadingPage.jsx";
+
 // For GraphQL Query
 import { useQuery } from "@apollo/client";
 import { GET_PRODUCTS_BY_NUMBER } from "../graphql.js";
@@ -10,7 +13,7 @@ export default function Home() {
   const { loading, error, data } = useQuery(GET_PRODUCTS_BY_NUMBER);
 
   // Handle Loading State
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <LoadingPage />;
 
   // Handle Error State
   if (error) return <p>Error : {error.message}</p>;
